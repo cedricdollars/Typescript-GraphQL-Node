@@ -1,23 +1,8 @@
-import  Koa from 'koa';
-import  logger from 'koa-logger';
-import  json from 'koa-json'
-import  Router from 'koa-router';
-import dotenv from 'dotenv'
-dotenv.config()
+import app from "./main/app";
+import { mongooseService } from "./main/mongoose.service";
 
-const  port = Number(process.env.PORT || 8080) 
-const app = new Koa();
-const router = new Router()
+const log = console.log;
+mongooseService.connect();
+const PORT = Number(process.env.PORT || 8080);
 
-app.use(json())
-app.use(logger())
-
-router.get("/api", async (ctx, next) => {
-    ctx.body = {
-        msg: "Hello world"
-    }
-    await next();
-})
-app.use(router.routes())
-
-app.listen(port,() => console.log(`[APP RUNNING]: Your server is up to port ${port}`));
+app.listen(() => log(`[APP RUNNING 🚀]: Your server is up on ${PORT}`));
