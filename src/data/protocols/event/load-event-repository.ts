@@ -1,6 +1,6 @@
 import Event from "../../../domain/entities/event/event";
 
 export interface LoadEventRepository {
-  load(id: number): Promise<Event>;
+  load(id: string): Promise<Event>;
   getAll(): Promise<Event[]>;
 }

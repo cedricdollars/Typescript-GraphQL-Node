@@ -1,8 +1,13 @@
-import app from "./main/app";
-import { mongooseService } from "./main/mongoose.service";
+import "module-alias/register";
+import app from "./config/app";
+import { MongodbHelper } from "./infra/DB/helpers/mongodb";
 
 const log = console.log;
-mongooseService.connect();
+
 const PORT = Number(process.env.PORT || 8080);
 
-app.listen(() => log(`[APP RUNNING 🚀]: Your server is up on ${PORT}`));
+MongodbHelper.connect(`${process.env.MONGO_URI}`)
+  .then(() => {
+    app.listen(() => log(`[APP RUNNING 🚀]: Your server is up on ${PORT}`));
+  })
+  .catch((error) => console.log(`[WARNING ❗️]: ${error}`));
