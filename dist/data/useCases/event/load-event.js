@@ -41,7 +41,7 @@ var LoadEventMemory = /** @class */ (function () {
     function LoadEventMemory(loadEventRepository) {
         this.loadEventRepository = loadEventRepository;
     }
-    LoadEventMemory.prototype.getById = function (id) {
+    LoadEventMemory.prototype.load = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var event;
             return __generator(this, function (_a) {

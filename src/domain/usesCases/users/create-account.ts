@@ -5,7 +5,7 @@ export type AccountCredentials = {
   email: string;
   password: string;
 };
-
+export type result = boolean;
 export interface CreateAccount {
-  register(newAccount: AccountCredentials): Promise<AccountCredentials>;
+  createAccount(newAccount: AccountCredentials): Promise<result>;
 }

@@ -20,6 +20,13 @@ export default gql`
       lastname: String!
       email: String!
       password: String!
-    ): User
+    ): Credentials
+  }
+  type Credentials {
+    firstname: String!
+    lastname: String!
+    email: String!
+    password: String!
+    pseudo: String!
   }
 `;

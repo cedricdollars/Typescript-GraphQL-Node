@@ -1,8 +1,8 @@
-import { AddEventRepository } from "../../../../data/protocols/event/add-event-repository";
-import { LoadEventRepository } from "../../../../data/protocols/event/load-event-repository";
+import { AddEventRepository } from "@/data/protocols/event/add-event-repository";
+import { LoadEventRepository } from "@/data/protocols/event/load-event-repository";
 import { MongodbHelper } from "../../helpers/mongodb";
 import { ObjectId } from "mongodb";
-import Event from "../../../../domain/entities/event/event";
+import Event from "@/domain/entities/event/event";
 
 export class EventMongoRepository
   implements AddEventRepository, LoadEventRepository {

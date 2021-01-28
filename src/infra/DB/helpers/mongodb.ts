@@ -1,4 +1,4 @@
-import { MongoClient, Collection } from "mongodb";
+import { MongoClient, Collection, connect } from "mongodb";
 
 export const MongodbHelper = {
   client: (null as unknown) as MongoClient,
@@ -14,8 +14,9 @@ export const MongodbHelper = {
   async disconnect(): Promise<void> {
     await this.client.close();
   },
+
   async getCollection(name: string): Promise<Collection> {
-    if (!this.client.connect()) {
+    if (!this.client?.isConnected()) {
       await this.connect(this.uri);
     }
     return this.client.db().collection(name);

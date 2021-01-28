@@ -1,8 +1,8 @@
-import { gql } from "apollo-server-koa";
+import { gql } from "apollo-server-express";
 import { GraphQLScalarType } from "graphql";
 
 export default gql`
-  scalar Date
+  scalar DateTime
 
   enum Type {
     MEETUP
@@ -12,23 +12,23 @@ export default gql`
     GALA
   }
   type Event {
-    id: ID!
+    _id: ID!
     type: Type!
     name: String!
     duration: Int!
-    date: Date!
+    date: DateTime!
     location: String!
   }
   extend type Query {
-    oneEvent(id: ID!): Event
-    allEvent: [Event]
+    getOne(_id: ID!): Event
+    getAll: [Event]
   }
   extend type Mutation {
     save(
       type: Type!
       name: String!
       duration: Int!
-      date: Date!
+      date: DateTime!
       location: String
     ): Event!
   }

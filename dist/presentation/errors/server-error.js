@@ -16,9 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ServerError = void 0;
 var ServerError = /** @class */ (function (_super) {
     __extends(ServerError, _super);
-    function ServerError(message) {
-        var _this = _super.call(this, message) || this;
-        _this.name = "Internal Error";
+    function ServerError(stack) {
+        var _this = _super.call(this, "Internal server error") || this;
+        _this.name = "ServerError";
+        _this.stack = stack;
         return _this;
     }
     return ServerError;

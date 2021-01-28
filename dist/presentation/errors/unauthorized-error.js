@@ -13,14 +13,14 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Unauthorized = void 0;
-var Unauthorized = /** @class */ (function (_super) {
-    __extends(Unauthorized, _super);
-    function Unauthorized(stack) {
-        var _this = _super.call(this, stack) || this;
-        _this.message = "Unauthorized";
+exports.UnauthorizedError = void 0;
+var UnauthorizedError = /** @class */ (function (_super) {
+    __extends(UnauthorizedError, _super);
+    function UnauthorizedError() {
+        var _this = _super.call(this, "Unauthorized") || this;
+        _this.message = "UnauthorizedError";
         return _this;
     }
-    return Unauthorized;
+    return UnauthorizedError;
 }(Error));
-exports.Unauthorized = Unauthorized;
+exports.UnauthorizedError = UnauthorizedError;

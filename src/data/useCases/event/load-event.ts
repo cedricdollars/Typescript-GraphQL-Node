@@ -1,5 +1,5 @@
-import Event from "../../../domain/entities/event/event";
-import { LoadEvent } from "../../../domain/usesCases/events/loadEvent";
+import Event from "@/domain/entities/event/event";
+import { LoadEvent } from "@/domain/usesCases/events/loadEvent";
 import { LoadEventRepository } from "../../protocols/event/load-event-repository";
 
 export class LoadEventMemory implements LoadEvent {

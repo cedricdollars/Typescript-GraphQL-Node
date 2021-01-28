@@ -5,7 +5,7 @@ import { TypeEvent } from "../../../src/domain/kind";
 
 export const mockAddEvent = (): Event => {
   return {
-    id: uuid(),
+    _id: uuid(),
     type: TypeEvent.exposition,
     name: faker.random.words(10),
     duration: faker.random.number(),

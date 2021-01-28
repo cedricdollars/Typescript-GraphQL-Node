@@ -1,8 +1,7 @@
-import { AccountCredentials } from "../../../domain/usesCases/users/create-account";
+import { AccountCredentials } from "@/domain/usesCases/users/create-account";
+
 export interface CreateUserAccountRepository {
-  register(
-    newUser: AccountCredentialsRepository
-  ): Promise<AccountCredentialsRepository>;
+  createAccount(newUser: AccountCredentials): Promise<result>;
 }
 
-export type AccountCredentialsRepository = AccountCredentials;
+export type result = boolean;

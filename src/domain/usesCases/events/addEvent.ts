@@ -1,5 +1,5 @@
-import Events from "../../entities/event/event";
+import Event from "../../entities/event/event";
 
-export interface addEvent {
-  save(event: Events): Promise<void>;
+export interface AddEvent {
+  save(event: Event): Promise<void>;
 }
