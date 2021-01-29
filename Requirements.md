@@ -21,15 +21,15 @@ II. Spécifications techniques & fonctionnelles
 
 ### Spécifications techniques
 
-- L'application tournera sur un serveur Javascript côté Back-end avec NodeJS
+- L'application tournera sur un serveur Javascript côté Back-end sous NodeJS Express
 - L'application devra être codé sur une architecture hexagonale
 - Un SGBD pour assurer le stockage des données, dans notre cas ce sera MongoDB
 - L'interface utilisateur sera codé en Javascript côté Front-end avec la librairie React (Redux saga)
 
-### Specifications fonctionnelles
+### Cas d'utilisations fonctionnelles
 
-- CRUD d'évènements
-- Planifier un évènement (en utilisant l'api de Google Calendar pour valider les dates )
-- L'évènement sera automatiquement supprimé une fois qu'il est passé.
-- CRUD des membres
-- Envoyer des invitations
+- CRUD pour les évènements
+- CRUD pour les users et les invités ou les participants
+- Authentification et rôle 
+- Envoyer des invitations aux invités qui ont un compte
+
