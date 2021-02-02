@@ -3,10 +3,10 @@ import { MongodbHelper } from "../../helpers/mongodb";
 
 export class CheckEmailAccountMongoRepository
   implements CheckEmailAccountRepository {
-  constructor(private email: string) {}
   async checkByEmail(email: string): Promise<boolean> {
     let collection = await MongodbHelper.getCollection("users");
     let emailResult = collection.findOne({ email });
+    console.log(emailResult);
     return emailResult !== null;
   }
 }

@@ -1,32 +1,35 @@
-import { gql } from "apollo-server-koa";
+import { gql } from "apollo-server-express";
 
 export default gql`
   type User {
-    id: ID!
+    _id: ID!
+    pseudo: String
     firstname: String!
     lastname: String!
     email: String!
     password: String!
-    pseudo: String
-    event: [Event]
   }
   extend type Query {
-    login(email: String!, password: String!): User
+    authentication(email: String!, password: String!): Token!
   }
   extend type Mutation {
-    signUp(
+    registration(
       pseudo: String
       firstname: String!
       lastname: String!
       email: String!
       password: String!
-    ): Credentials
+    ): Boolean!
   }
-  type Credentials {
+  type Account {
+    pseudo: String
     firstname: String!
     lastname: String!
     email: String!
     password: String!
-    pseudo: String!
+  }
+  type Token {
+    accessToken: String!
+    firstname: String!
   }
 `;

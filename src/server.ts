@@ -6,8 +6,11 @@ dotenv.config();
 const log = console.log;
 
 const PORT = Number(process.env.PORT || 8080);
+const URI =
+  String(process.env.MONGO_URI) ||
+  "mongodb+srv://cedricdollars:cedricdollars@cluster0.ku08x.mongodb.net/api_event?retryWrites=true&w=majority";
 
-MongodbHelper.connect(encodeURI(`${process.env.MONGO_URI}`))
+MongodbHelper.connect(URI)
   .then(async () => {
     app.listen(() =>
       log(`[APP RUNNING 🚀]: Your server is ready at http://localhost:${PORT}`)

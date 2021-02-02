@@ -1,5 +1,5 @@
-import Event from "@/domain/entities/event/event";
+import { Params } from "../../../domain/usesCases/events/addEvent";
 
 export interface AddEventRepository {
-  save(event: Event): Promise<void>;
+  save(event: Params): Promise<void>;
 }

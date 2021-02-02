@@ -1,12 +1,12 @@
 import express from "express";
 import setupMiddleware from "./middleware";
 import setupApolloServer from "./apollo-server";
-import setupRoutes from "./routes";
+import { Routes } from "./routes";
 
 const app = express();
 setupApolloServer(app);
 setupMiddleware(app);
-setupRoutes(app);
+new Routes(app);
 
 // class App {
 //   public readonly app: Koa;

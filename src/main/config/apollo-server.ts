@@ -13,6 +13,7 @@ export default (app: Express): void => {
       endpoint: "/graphql",
     },
   });
+
   server.applyMiddleware({ app });
   app.listen(4000, () => {
     `Apollo server is running at http://localhost:4000/graphql`;

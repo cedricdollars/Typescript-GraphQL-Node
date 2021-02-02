@@ -3,18 +3,21 @@ import { LoadEventRepository } from "@/data/protocols/event/load-event-repositor
 import { MongodbHelper } from "../../helpers/mongodb";
 import { ObjectId } from "mongodb";
 import Event from "@/domain/entities/event/event";
+import { Params } from "../../../../domain/usesCases/events/addEvent";
 
 export class EventMongoRepository
   implements AddEventRepository, LoadEventRepository {
-  async save(event: Event): Promise<void> {
+  async save(event: Params): Promise<void> {
     const eventCollection = await MongodbHelper.getCollection("events");
     await eventCollection.insertOne(event);
   }
+
   async load(id: string): Promise<Event> {
     const eventCollection = await MongodbHelper.getCollection("events");
     const event = await eventCollection.findOne({ _id: new ObjectId(id) });
     return event;
   }
+
   async getAll(): Promise<Event[]> {
     const eventCollection = await MongodbHelper.getCollection("events");
     return await eventCollection.find().toArray();

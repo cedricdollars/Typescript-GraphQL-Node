@@ -1,17 +1,19 @@
 {
   "compilerOptions": {
     "watch": true,
-    "target": "es5",
+    "target": "ESNext",
     "module": "commonjs",
     "lib": ["es5", "ES6"],
     "outDir": "dist",
     "rootDir": "src",
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["*"],
+      "@/tests/*": ["tests/*"]
     },
     "strict": true,
     "esModuleInterop": true,
+    "strictNullChecks": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

@@ -5,7 +5,7 @@ import { LoadEventRepository } from "../../protocols/event/load-event-repository
 export class LoadEventMemory implements LoadEvent {
   constructor(private loadEventRepository: LoadEventRepository) {}
 
-  async load(id: string): Promise<Event | null> {
+  async load(id: string): Promise<Event> {
     const event = await this.loadEventRepository.load(id);
     return event;
   }

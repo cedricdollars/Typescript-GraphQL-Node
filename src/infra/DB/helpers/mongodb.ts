@@ -1,4 +1,4 @@
-import { MongoClient, Collection, connect } from "mongodb";
+import { MongoClient, Collection } from "mongodb";
 
 export const MongodbHelper = {
   client: (null as unknown) as MongoClient,
@@ -16,8 +16,15 @@ export const MongodbHelper = {
   },
 
   async getCollection(name: string): Promise<Collection> {
-    if (!this.client?.isConnected()) {
-      await this.connect(this.uri);
+    if (!this.client) {
+      return await (
+        await MongoClient.connect(
+          "mongodb+srv://cedricdollars:cedricdollars@cluster0.ku08x.mongodb.net/api_event?retryWrites=true&w=majority",
+          { useUnifiedTopology: true, useNewUrlParser: true }
+        )
+      )
+        .db()
+        .collection(name);
     }
     return this.client.db().collection(name);
   },

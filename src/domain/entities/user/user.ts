@@ -1,11 +1,8 @@
-import Events from "../event/event";
-
 export interface User {
-  id: string;
+  _id: string;
+  pseudo?: string;
   firstname: string;
   lastname: string;
   email: string;
-  pseudo?: string;
   password: string;
-  events: Events[];
 }

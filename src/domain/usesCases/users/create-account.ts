@@ -1,7 +1,7 @@
 export type AccountCredentials = {
+  pseudo?: string;
   firstname: string;
   lastname: string;
-  pseudo?: string;
   email: string;
   password: string;
 };
