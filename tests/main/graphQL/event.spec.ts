@@ -36,7 +36,7 @@ describe("GraphQL tests", () => {
     }
   `;
 
-  it("Should return event ", async () => {
+  it("Should save event ", async () => {
     const now = new Date();
     await eventCollection.insertOne({
       type: TypeEvent,

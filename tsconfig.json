@@ -5,11 +5,11 @@
     "module": "commonjs",
     "lib": ["es5", "ES6"],
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDirs": ["src", "tests"],
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"],
-      "@/tests/*": ["tests/*"]
+      "@/tests/*": ["tests/"],
+      "@/*": ["*"]
     },
     "strict": true,
     "esModuleInterop": true,
@@ -19,6 +19,6 @@
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true
   },
-  "include": ["src"],
+  "include": ["src", "tests"],
   "exclude": ["./node_modules/"]
 }

@@ -10,7 +10,7 @@
         "debug": "nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/server.js",
         "tsc": "tsc",
         "start:dev": "nodemon",
-        "start": "npm run build && node ./dist/server.js"
+        "start": "npm run build && node ./dist/src/server.js"
     },
     "keywords": [],
     "author": "",
@@ -63,7 +63,7 @@
         "ts-node-dev": "^1.1.1"
     },
     "_moduleAliases": {
-        "@": "dist",
-        "@test": "tests"
+        "@": "dist/src/",
+        "@tests": "dist/tests/"
     }
 }

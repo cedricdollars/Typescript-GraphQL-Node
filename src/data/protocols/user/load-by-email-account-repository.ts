@@ -1,4 +1,8 @@
-import { AccountCredentials } from "../../../domain/usesCases/users/create-account";
 export interface LoadByAccountByEmailRepository {
-  loadByEmail(email: string): Promise<AccountCredentials>;
+  loadByEmail(email: string): Promise<UserResult>;
 }
+export type UserResult = {
+  _id: string;
+  lastname: string;
+  password: string;
+};

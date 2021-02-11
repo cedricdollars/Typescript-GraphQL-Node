@@ -4,8 +4,13 @@ import {
   result,
 } from "@/domain/usesCases/users/create-account";
 import { MongodbHelper } from "../../helpers/mongodb";
-import { LoadByAccountByEmailRepository } from "../../../../data/protocols/user/load-by-email-account-repository";
-import { CheckEmailAccountRepository } from "../../../../data/protocols/user/check-email-account-repository";
+
+import {
+  UpdateAccessTokenRepository,
+  CheckEmailAccountRepository,
+  LoadByAccountByEmailRepository,
+  UserResult,
+} from "@/data/protocols/";
 
 /**
  * TODO
@@ -16,7 +21,8 @@ export class UserMongoRepository
   implements
     CreateUserAccountRepository,
     LoadByAccountByEmailRepository,
-    CheckEmailAccountRepository {
+    CheckEmailAccountRepository,
+    UpdateAccessTokenRepository {
   async checkByEmail(email: string): Promise<boolean> {
     const accountCollection = await MongodbHelper.getCollection("users");
     const result = await accountCollection.findOne(
@@ -25,7 +31,7 @@ export class UserMongoRepository
     );
     return result !== null;
   }
-  async loadByEmail(email: string): Promise<AccountCredentials> {
+  async loadByEmail(email: string): Promise<UserResult> {
     const accountCollection = await MongodbHelper.getCollection("users");
     const account = await accountCollection.findOne({ email });
     return account;
@@ -35,5 +41,16 @@ export class UserMongoRepository
     const result = await userCollection.insertOne(newUser);
 
     return result !== null;
+  }
+  async updateAccessToken(_id: string, token: string): Promise<void> {
+    const accountCollection = await MongodbHelper.getCollection("users");
+    await accountCollection.updateOne(
+      { _id },
+      {
+        $set: {
+          accessToken: token,
+        },
+      }
+    );
   }
 }

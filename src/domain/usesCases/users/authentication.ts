@@ -4,7 +4,7 @@ export type UserAccount = {
 };
 export type TokenResult = {
   accessToken: string;
-  pseudo?: string;
+  lastname: string;
 };
 export default interface Authentication {
   authenticate(user: UserAccount): Promise<TokenResult>;

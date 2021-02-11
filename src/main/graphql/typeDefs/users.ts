@@ -30,6 +30,6 @@ export default gql`
   }
   type Token {
     accessToken: String!
-    firstname: String!
+    lastname: String!
   }
 `;

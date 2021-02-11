@@ -1,7 +1,7 @@
-import { AddEventMemory } from "@/data/useCases/event/add-event";
 import { LoadEventMemory } from "@/data/useCases/event/load-event";
 import { EventMongoRepository } from "@/infra/DB/mongodb/event/event-mongo-repository";
 import { NoDataError } from "../../../presentation/errors/no-data-error";
+import { AddEventMemory } from "../../../data/useCases/event/add-event";
 
 export default {
   Query: {
@@ -25,7 +25,7 @@ export default {
       const eventMongoRepo = new EventMongoRepository();
       const event = new AddEventMemory(eventMongoRepo);
       const result = await event.save(args);
-      console.log(result);
+      return result;
     },
   },
 };
