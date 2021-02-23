@@ -2,7 +2,7 @@ import faker from "faker";
 import { AddEventRepository } from "../../../../../src/data/protocols/event/add-event-repository";
 import { LoadEventRepository } from "../../../../../src/data/protocols/event/load-event-repository";
 import { mockOneEvent, mockEvents } from "./mock-event-model";
-import Event from "../../../../../src/domain/entities/event/event";
+import Event from '../../../../../src/domain/entities/event/event';
 
 export class AddEventRepositorySut implements AddEventRepository {
   data?: AddEventRepository;
